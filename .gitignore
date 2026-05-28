@@ -1,0 +1,38 @@
+# Ambiente
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Build frontend
+frontend/dist/
+frontend/build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store

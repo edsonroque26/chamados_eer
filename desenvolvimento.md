@@ -73,6 +73,24 @@ chamados_eer/
 - Definida arquitetura com apps separados: `chamados`, `financeiro`, `core`
 - Criado este arquivo `desenvolvimento.md` como registro central do projeto
 
+### 2026-05-28 — Estrutura Docker
+
+- Criados arquivos Docker com multi-stage builds (base → development → production)
+- `docker-compose.yml`: configuração base para produção
+- `docker-compose.dev.yml`: overrides para desenvolvimento (hot reload, portas expostas)
+- `backend/Dockerfile`: Python 3.12-slim, stages dev e prod, usuário não-root em produção
+- `frontend/Dockerfile`: Node 20 para dev, build com Vite, servido via nginx em produção
+- `frontend/nginx.conf`: SPA routing + proxy reverso para `/api/` apontando para o backend
+- `.env.example`: template de variáveis de ambiente (`.env` real nunca vai para o git)
+- `.gitignore`: configurado para Python, Node, Django e variáveis de ambiente
+- Decisões de boas práticas aplicadas:
+  - Health check no PostgreSQL antes de subir o backend
+  - Rede isolada `chamados_net` entre os serviços
+  - Volume nomeado `postgres_data` para persistência do banco
+  - `.dockerignore` em backend e frontend para imagens menores
+  - Usuário não-root no container de produção do Django
+  - `gunicorn` com workers/threads para produção
+
 ### 2026-05-28 — Configuração do Git e GitHub
 
 - Instalado GitHub CLI (`gh`) via apt
@@ -87,7 +105,7 @@ chamados_eer/
 ## Próximos Passos
 
 - [x] **Passo 1 — Repositório GitHub:** Criar o repositório `chamados_eer` no GitHub e fazer o primeiro commit com a estrutura inicial
-- [ ] **Passo 2 — Docker Compose base:** Criar `docker-compose.yml` com os serviços: `db` (PostgreSQL), `backend` (Django), `frontend` (React/Node)
+- [x] **Passo 2 — Docker Compose base:** Criar `docker-compose.yml` com os serviços: `db` (PostgreSQL), `backend` (Django), `frontend` (React/Node)
 - [ ] **Passo 3 — Backend Django:** Inicializar projeto Django com os apps `core`, `chamados` e `financeiro`; configurar conexão com PostgreSQL
 - [ ] **Passo 4 — Autenticação:** Configurar autenticação JWT no Django (djangorestframework-simplejwt)
 - [ ] **Passo 5 — Models do app `chamados`:** Definir models: `Chamado`, `Categoria`, `Status`, `Comentario`

@@ -1,0 +1,27 @@
+services:
+  db:
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      target: development
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      DEBUG: "True"
+
+  frontend:
+    build:
+      target: development
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    command: npm run dev -- --host
+    environment:
+      VITE_API_URL: http://localhost:8000
