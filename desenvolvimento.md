@@ -73,11 +73,20 @@ chamados_eer/
 - Definida arquitetura com apps separados: `chamados`, `financeiro`, `core`
 - Criado este arquivo `desenvolvimento.md` como registro central do projeto
 
+### 2026-05-28 — Configuração do Git e GitHub
+
+- Instalado GitHub CLI (`gh`) via apt
+- Autenticação realizada com `gh auth login` (usuário: edsonroque26)
+- Configurado git global: `user.email = edsonroque26@gmail.com`, `user.name = edsonroque26`
+- Criado repositório público no GitHub: https://github.com/edsonroque26/chamados_eer
+- Primeiro commit realizado: `inicio do projeto chamados_eer`
+- Branch principal: `master` vinculada ao remote `origin`
+
 ---
 
 ## Próximos Passos
 
-- [ ] **Passo 1 — Repositório GitHub:** Criar o repositório `chamados_eer` no GitHub e fazer o primeiro commit com a estrutura inicial
+- [x] **Passo 1 — Repositório GitHub:** Criar o repositório `chamados_eer` no GitHub e fazer o primeiro commit com a estrutura inicial
 - [ ] **Passo 2 — Docker Compose base:** Criar `docker-compose.yml` com os serviços: `db` (PostgreSQL), `backend` (Django), `frontend` (React/Node)
 - [ ] **Passo 3 — Backend Django:** Inicializar projeto Django com os apps `core`, `chamados` e `financeiro`; configurar conexão com PostgreSQL
 - [ ] **Passo 4 — Autenticação:** Configurar autenticação JWT no Django (djangorestframework-simplejwt)
