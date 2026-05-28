@@ -102,6 +102,28 @@ chamados_eer/
 
 ---
 
+## Pendências — Detalhamento Necessário
+
+> Antes de continuar o desenvolvimento, o responsável pelo projeto precisa detalhar os itens abaixo. Nenhum model, view ou tela deve ser criado sem esse alinhamento.
+
+### App `chamados` — a detalhar
+- Como funciona o fluxo de um chamado? (quem abre, quem atende, etapas)
+- Quais os status possíveis? (ex: Aberto, Em andamento, Aguardando, Encerrado)
+- Quem pode abrir chamados? Clientes, funcionários internos ou ambos?
+- Existe prioridade? (ex: Baixa, Média, Alta, Urgente)
+- Haverá SLA / prazo de atendimento?
+- Chamados têm categorias? Quais?
+- Como funciona a comunicação dentro do chamado? (comentários, histórico)
+
+### App `financeiro` — a detalhar
+- O que será controlado? (cobranças, pagamentos, boletos, recibos?)
+- O financeiro está ligado aos chamados? (ex: chamado gera cobrança?)
+- Haverá contas a pagar e a receber?
+- Precisará de relatórios? Quais?
+- Integrará com algum sistema de pagamento externo?
+
+---
+
 ## Próximos Passos
 
 - [x] **Passo 1 — Repositório GitHub:** Criar o repositório `chamados_eer` no GitHub e fazer o primeiro commit com a estrutura inicial
